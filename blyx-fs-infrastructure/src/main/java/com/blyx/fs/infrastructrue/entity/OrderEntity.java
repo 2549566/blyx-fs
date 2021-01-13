@@ -1,6 +1,7 @@
 package com.blyx.fs.infrastructrue.entity;
 
 
+import com.blyx.fs.common.model.BaseEntity;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -12,7 +13,7 @@ import java.util.Date;
  * @date 15:53 2021/1/12
  */
 @Data
-public class OrderEntity implements Serializable {
+public class OrderEntity extends BaseEntity implements Serializable {
     private static final long serialVersionUID = -668131878334418738L;
 
     /**

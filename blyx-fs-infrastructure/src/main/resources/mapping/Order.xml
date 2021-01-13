@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.blyx.infrastructure.mapper.OrderMapper" >
-  <resultMap id="ResultMap" type="com.blyx.infrastructure.entity.OrderEntity" >
+<mapper namespace="com.blyx.fs.infrastructrue.mapper.OrderMapper" >
+  <resultMap id="ResultMap" type="com.blyx.fs.infrastructrue.entity.OrderEntity" >
       <id column="id" property="id" />
       <result column="order_code" property="orderCode" />
       <result column="type" property="type" />
@@ -42,7 +42,7 @@
       user_evaluation,error_msg,error_code,created,modified,creator,modifier,yn
   </sql>
 
-    <insert id="insertOne" useGeneratedKeys="true" keyProperty="id"   parameterType="com.blyx.infrastructure.entity.OrderEntity">
+    <insert id="insertOne" useGeneratedKeys="true" keyProperty="id"   parameterType="com.blyx.fs.infrastructrue.entity.OrderEntity">
         INSERT INTO fs_order (<include refid="allColumns"/>)
         VALUES (null,#{orderCode},#{type},#{userName},#{userMobile},#{orderProvinceCode},#{orderCityCode},#{orderAreaCode},#{orderProvinceName},#{orderCityName},
         #{orderAreaName},#{orderAddressDetail},#{status},#{workerPin},#{sumAmount},#{workerAmount},#{serviceCharge},#{context},#{workerMark},#{repairRegion},
