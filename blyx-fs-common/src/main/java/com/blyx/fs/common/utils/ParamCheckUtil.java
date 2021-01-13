@@ -1,7 +1,7 @@
 package com.blyx.fs.common.utils;
 
-import com.blyx.common.enums.ParamEnum;
-import com.blyx.common.exception.BusinessException;
+import com.blyx.fs.common.enums.ParamEnum;
+import com.blyx.fs.common.exception.BusinessException;
 import org.springframework.util.StringUtils;
 
 public class ParamCheckUtil {
