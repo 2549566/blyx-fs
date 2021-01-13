@@ -1,5 +1,42 @@
-# Project exclude paths
-/blyx-fs-context/target/
-/blyx-fs-domain/target/
-/blyx-fs-infrastructure/target/
-/blyx-fs-web/target/
+# Libraries
+# Libraries
+/lib/*.jar
+
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# Maven files
+target/
+
+# Intellij IDEA files
+*.iml
+*.ipr
+*.iws
+.idea/
+*.orig
+!/.gitlab/
+
+
+.DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
