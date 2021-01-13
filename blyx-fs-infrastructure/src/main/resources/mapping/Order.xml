@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blyx.infrastructure.mapper.OrderMapper" >
+  <resultMap id="ResultMap" type="com.blyx.infrastructure.entity.OrderEntity" >
+      <id column="id" property="id" />
+      <result column="order_code" property="orderCode" />
+      <result column="type" property="type" />
+      <result column="user_name" property="userName" />
+      <result column="user_mobile" property="userMobile" />
+      <result column="order_province_code" property="orderProvinceCode" />
+      <result column="order_city_code" property="orderCityCode" />
+      <result column="order_area_code" property="orderAreaCode" />
+      <result column="order_province_name" property="orderProvinceName" />
+      <result column="order_city_name" property="orderCityName" />
+      <result column="order_area_name" property="orderAreaName" />
+      <result column="order_address_detail" property="orderAddressDetail" />
+      <result column="status" property="status" />
+      <result column="worker_pin" property="workerPin" />
+      <result column="sum_amount" property="sumAmount" />
+      <result column="worker_amount" property="workerAmount" />
+      <result column="service_charge" property="serviceCharge" />
+      <result column="context" property="context" />
+      <result column="worker_mark" property="workerMark" />
+      <result column="repair_region" property="repairRegion" />
+      <result column="start_time" property="startTime" />
+      <result column="end_time" property="endTime" />
+      <result column="score" property="score" />
+      <result column="user_evaluation" property="userEvaluation" />
+      <result column="error_msg" property="errorMsg" />
+      <result column="error_code" property="errorCode" />
+      <result column="created" property="created" />
+      <result column="modified" property="modified" />
+      <result column="creator" property="creator" />
+      <result column="modifier" property="modifier" />
+      <result column="yn" property="yn" />
+  </resultMap>
+
+
+  <sql id="allColumns">
+      id,order_code,type,user_name,user_mobile,order_province_code,order_city_code,order_area_code,order_province_name,order_city_name,order_area_name,
+      order_address_detail,status,worker_pin,sum_amount,worker_amount,service_charge,context,worker_mark,repair_region,start_time,end_time,score,
+      user_evaluation,error_msg,error_code,created,modified,creator,modifier,yn
+  </sql>
+
+    <insert id="insertOne" useGeneratedKeys="true" keyProperty="id"   parameterType="com.blyx.infrastructure.entity.OrderEntity">
+        INSERT INTO fs_order (<include refid="allColumns"/>)
+        VALUES (null,#{orderCode},#{type},#{userName},#{userMobile},#{orderProvinceCode},#{orderCityCode},#{orderAreaCode},#{orderProvinceName},#{orderCityName},
+        #{orderAreaName},#{orderAddressDetail},#{status},#{workerPin},#{sumAmount},#{workerAmount},#{serviceCharge},#{context},#{workerMark},#{repairRegion},
+        #{startTime},#{endTime},#{score},#{userEvaluation},#{errorMsg},#{errorCode},NOW(),#{modified},#{creator},#{modifier},#{yn} )
+    </insert>
+
+</mapper>

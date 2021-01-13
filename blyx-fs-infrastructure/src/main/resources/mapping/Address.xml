@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blyx.infrastructure.mapper.AddressMapper" >
+  <resultMap id="ResultMap" type="com.blyx.infrastructure.entity.AddressEntity" >
+      <id column="id" property="id" />
+      <result column="pid" property="pid" />
+      <result column="city_name" property="cityName" />
+      <result column="type" property="type" />
+  </resultMap>
+  <sql id="allColumns">
+      id,pid,city_name,type
+  </sql>
+    <select id="selectAddress" resultMap="ResultMap">
+        SELECT <include refid="allColumns"/>
+        FROM address
+    </select>
+</mapper>

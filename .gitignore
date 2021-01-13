@@ -1,0 +1,5 @@
+# Project exclude paths
+/blyx-fs-context/target/
+/blyx-fs-domain/target/
+/blyx-fs-infrastructure/target/
+/blyx-fs-web/target/
