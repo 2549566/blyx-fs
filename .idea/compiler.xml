@@ -10,6 +10,7 @@
         <module name="blyx-fs-context" />
         <module name="blyx-fs-infrastructure" />
         <module name="blyx-fs-web" />
+        <module name="blyx-fs-common" />
       </profile>
     </annotationProcessing>
   </component>

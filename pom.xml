@@ -19,6 +19,7 @@
         <module>blyx-fs-context</module>
         <module>blyx-fs-domain</module>
         <module>blyx-fs-infrastructure</module>
+        <module>blyx-fs-common</module>
     </modules>
 
     <properties>
