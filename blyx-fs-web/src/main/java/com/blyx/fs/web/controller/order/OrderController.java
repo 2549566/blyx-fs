@@ -5,6 +5,7 @@ import com.blyx.fs.common.utils.ParamCheckUtil;
 import com.blyx.fs.context.activity.order.OrderActivity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,10 +27,10 @@ public class OrderController {
     private OrderActivity orderActivity;
 
 
-    @PostMapping("/submitOrderFS")
+    @GetMapping("/submitOrderFS")
     public BlyxResult<Boolean> getCheckCode(HttpServletRequest request, String mobile){
         //校验手机号
-        ParamCheckUtil.checkMobileNumber(mobile);
+//        ParamCheckUtil.checkMobileNumber(mobile);
 
         //校验IP，防止网络攻击 todo
 

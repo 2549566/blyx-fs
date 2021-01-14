@@ -1,32 +1,25 @@
-package com.blyx.fs.context.activity.order.impl;
+package com.blyx.fs.order;
 
-
-import com.blyx.fs.context.activity.order.OrderActivity;
+import com.blyx.fs.BaseTest;
 import com.blyx.fs.domain.order.ability.OrderAbility;
 import com.blyx.fs.domain.order.model.OrderMO;
-import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
 /**
  * @author quyang5
  * @description
- * @date 15:53 2021/1/12
+ * @date 15:53 2021/1/14
  */
-@Slf4j
-@Service
-public class OrderActivityImpl implements OrderActivity {
-
+public class OrderTest extends BaseTest {
 
     @Autowired
     private OrderAbility orderAbility;
 
-    @Override
-    public String createOrderFS() {
-
-
+    @Test
+    public void saveOrder(){
         OrderMO order=new OrderMO();
 
         order.setOrderCode("BJ12321321321");
@@ -55,8 +48,8 @@ public class OrderActivityImpl implements OrderActivity {
         order.setErrorCode(1000);
         order.setErrorMsg("fdasfdsa");
 
-        orderAbility.createOneOrder(order);
+        Integer count=orderAbility.createOneOrder(order);
+        System.out.println(count);
 
-        return "success";
     }
 }

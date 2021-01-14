@@ -44,5 +44,5 @@ public class BaseEntity implements Serializable {
       * 0：逻辑删除
       *
       * */
-     private String yn;
+     private Integer yn;
 }

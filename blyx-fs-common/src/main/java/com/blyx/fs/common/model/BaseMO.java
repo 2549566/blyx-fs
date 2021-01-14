@@ -18,13 +18,13 @@ public class BaseMO implements Serializable {
      * 创建时间
      *
      * */
-     private Date created;
+     private Date created=new Date();
 
      /**
       * 修改时间
       *
       * */
-     private Date modified;
+     private Date modified=new Date();
 
      /**
       * 创建人
@@ -44,5 +44,5 @@ public class BaseMO implements Serializable {
       * 0：逻辑删除
       *
       * */
-     private String yn;
+     private Integer yn =1;
 }
