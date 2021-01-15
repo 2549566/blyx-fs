@@ -2,6 +2,7 @@ package com.blyx.fs.web.controller.order;
 
 import com.blyx.fs.common.model.BlyxResult;
 import com.blyx.fs.common.utils.ParamCheckUtil;
+import com.blyx.fs.common.utils.RedisUtil;
 import com.blyx.fs.context.activity.order.OrderActivity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,13 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 @RestController
-@RequestMapping("/order")
-public class OrderController {
+@RequestMapping("/userOrder")
+public class UserOrderController {
 
+
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     @Autowired
     private OrderActivity orderActivity;
@@ -31,6 +36,12 @@ public class OrderController {
     public BlyxResult<Boolean> getCheckCode(HttpServletRequest request, String mobile){
         //校验手机号
 //        ParamCheckUtil.checkMobileNumber(mobile);
+
+        redisUtil.setEx("quyangtest","31232131",20000);
+
+        String testStr=redisUtil.get("quyangtest");
+
+        System.out.println(testStr);
 
         //校验IP，防止网络攻击 todo
 

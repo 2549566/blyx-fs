@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/workerLogin")
 public class LoginController {
 
 

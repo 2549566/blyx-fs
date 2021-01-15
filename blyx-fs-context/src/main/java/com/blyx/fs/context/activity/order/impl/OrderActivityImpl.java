@@ -29,7 +29,7 @@ public class OrderActivityImpl implements OrderActivity {
 
         OrderMO order=new OrderMO();
 
-        order.setOrderCode("BJ12321321321");
+        order.setOrderCode("BJ12321221321");
         order.setType(1);
         order.setUserName("quyang");
         order.setUserMobile("13718699660");
