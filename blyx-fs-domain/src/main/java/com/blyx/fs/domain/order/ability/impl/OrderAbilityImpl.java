@@ -1,6 +1,7 @@
 package com.blyx.fs.domain.order.ability.impl;
 
 
+import com.blyx.fs.common.utils.GenOrderUtil;
 import com.blyx.fs.domain.order.ability.OrderAbility;
 import com.blyx.fs.domain.order.model.OrderMO;
 import com.blyx.fs.domain.worker.repository.OrderRepository;
@@ -22,8 +23,15 @@ public class OrderAbilityImpl implements OrderAbility {
     private OrderRepository orderRepository;
 
     @Override
-    public Integer createOneOrder(OrderMO orderMO) {
+    public String genOrderCode(Integer orderProvinceCode,String bizType) {
 
-        return orderRepository.saveOrder(orderMO);
+        return GenOrderUtil.genOrderCode(orderProvinceCode,bizType);
+    }
+
+    @Override
+    public String createOneOrder(OrderMO orderMO) {
+
+         orderRepository.saveOrder(orderMO);
+         return null;
     }
 }

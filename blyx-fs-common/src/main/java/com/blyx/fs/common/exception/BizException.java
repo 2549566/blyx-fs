@@ -3,24 +3,24 @@ package com.blyx.fs.common.exception;
 /**
  * 业务异常
  */
-public class BusinessException extends RuntimeException {
+public class BizException extends RuntimeException {
     private Integer code;
-    public BusinessException() {
+    public BizException() {
     }
 
-    public BusinessException(String message) {
+    public BizException(String message) {
         super(message);
     }
-    public BusinessException(Integer code, String message) {
+    public BizException(Integer code, String message) {
         super(message);
         this.code=code;
     }
 
-    public BusinessException(String message, Throwable cause) {
+    public BizException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public BusinessException(Throwable cause) {
+    public BizException(Throwable cause) {
         super(cause);
     }
 

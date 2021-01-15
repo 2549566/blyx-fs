@@ -10,5 +10,21 @@ import com.blyx.fs.domain.order.model.OrderMO;
  */
 public interface OrderAbility {
 
-    Integer createOneOrder(OrderMO orderMO);
+
+    /**
+     * @desc 生成OrderCode
+     * @param orderProvinceCode 防水区域
+     * @param bizType 业务类型
+     * @return String
+     *
+     * */
+    String genOrderCode(Integer orderProvinceCode,String bizType);
+
+    /**
+     * @desc 创建一个订单
+     * @param orderMO 订单入参（字段不全）
+     * @return 订单编码
+     *
+     * */
+    String createOneOrder(OrderMO orderMO);
 }

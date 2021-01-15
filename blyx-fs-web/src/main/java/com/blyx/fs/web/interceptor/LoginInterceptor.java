@@ -1,7 +1,7 @@
 package com.blyx.fs.web.interceptor;
 
 import com.blyx.fs.common.enums.BizCodeEnum;
-import com.blyx.fs.common.exception.BusinessException;
+import com.blyx.fs.common.exception.BizException;
 import com.blyx.fs.common.utils.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.MimeHeaders;
@@ -50,7 +50,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
 
         if(!redisUtil.hasKey(token)){
-            throw new BusinessException(BizCodeEnum.WORKER_LOGIN_TOKEN_IS_NOT_EXISTS.getCode(),BizCodeEnum.WORKER_LOGIN_TOKEN_IS_NOT_EXISTS.getDesc());
+            throw new BizException(BizCodeEnum.WORKER_LOGIN_TOKEN_IS_NOT_EXISTS.getCode(),BizCodeEnum.WORKER_LOGIN_TOKEN_IS_NOT_EXISTS.getDesc());
         }
 
         return true;

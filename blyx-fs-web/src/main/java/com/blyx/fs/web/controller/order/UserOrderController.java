@@ -1,17 +1,16 @@
 package com.blyx.fs.web.controller.order;
 
+import com.alibaba.fastjson.JSON;
+import com.blyx.fs.common.enums.BizCodeEnum;
+import com.blyx.fs.common.exception.BizException;
 import com.blyx.fs.common.model.BlyxResult;
+import com.blyx.fs.common.utils.AddressCheckUtil;
 import com.blyx.fs.common.utils.ParamCheckUtil;
-import com.blyx.fs.common.utils.RedisUtil;
 import com.blyx.fs.context.activity.order.OrderActivity;
+import com.blyx.fs.context.model.req.OrderDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author quyang5
@@ -24,30 +23,39 @@ import javax.servlet.http.HttpServletRequest;
 public class UserOrderController {
 
 
-
-    @Autowired
-    private RedisUtil redisUtil;
-
     @Autowired
     private OrderActivity orderActivity;
 
 
-    @GetMapping("/submitOrderFS")
-    public BlyxResult<Boolean> getCheckCode(HttpServletRequest request, String mobile){
+    @PostMapping("/submitOrderFS")
+    public BlyxResult<Boolean> submitOrderFS(@RequestBody OrderDTO orderDTO){
+
+        log.info("UserOrderController.submitOrderFS:orderDTO={}",JSON.toJSONString(orderDTO));
+
+        checkSubmitOrderFS(orderDTO);
+
         //校验手机号
-//        ParamCheckUtil.checkMobileNumber(mobile);
+        ParamCheckUtil.checkMobileNumber(orderDTO.getUserMobile());
 
-        redisUtil.setEx("quyangtest","31232131",20000);
+        String orderCode=orderActivity.createOrderFS(orderDTO);
 
-        String testStr=redisUtil.get("quyangtest");
-
-        System.out.println(testStr);
-
-        //校验IP，防止网络攻击 todo
-
-        String orderCode=orderActivity.createOrderFS();
+        log.info("UserOrderController.submitOrderFS:result orderCode={}",orderCode);
 
         return BlyxResult.setSuccessData(true);
+    }
+
+    private Boolean checkSubmitOrderFS(OrderDTO orderDTO) {
+
+        if(orderDTO==null){
+            log.error("UserOrderController.submitOrderFS:orderDTO is null");
+            throw new BizException(BizCodeEnum.ORDER_USER_SUBMIT_NULL.getCode(),BizCodeEnum.ORDER_USER_SUBMIT_NULL.getDesc());
+        }
+
+        if(!AddressCheckUtil.checkServerRegion(orderDTO.getOrderProvinceCode())){
+            throw new BizException(BizCodeEnum.ORDER_NOT_IN_SERVER_REGION.getCode(),BizCodeEnum.ORDER_NOT_IN_SERVER_REGION.getDesc());
+        }
+
+        return true;
     }
 
 }
