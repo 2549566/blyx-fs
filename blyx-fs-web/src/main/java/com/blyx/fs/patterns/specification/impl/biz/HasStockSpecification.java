@@ -12,6 +12,7 @@ public class HasStockSpecification<T> extends CompositeSpecification<T> {
     @Override
     public boolean isSatisfiedBy(T candidate) {
         Sku sku=(Sku)candidate;
+        System.out.println("库存中心。。。"+sku.getName());
         //todo 调用库存中心
         return sku.getHasStock();
     }

@@ -37,7 +37,7 @@ public class OrderTest extends BaseTest {
         order.setWorkerPin("12321321321");
         order.setSumAmount(10000);
         order.setWorkerAmount(200000);
-        order.setServiceCharge(900);
+        order.setServiceFee(900);
         order.setContext("321321312");
         order.setWorkerMark("fdsafdsa");
         order.setRepairRegion("fdsafdsaf");
@@ -48,8 +48,8 @@ public class OrderTest extends BaseTest {
         order.setErrorCode(1000);
         order.setErrorMsg("fdasfdsa");
 
-        Integer count=orderAbility.createOneOrder(order);
-        System.out.println(count);
+        orderAbility.createOneOrder(order);
+
 
     }
 }

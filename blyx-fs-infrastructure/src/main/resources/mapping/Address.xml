@@ -14,4 +14,12 @@
         SELECT <include refid="allColumns"/>
         FROM address
     </select>
+
+    <select id="selectAddressByCode" resultMap="ResultMap">
+        SELECT <include refid="allColumns"/>
+        FROM address
+        where id=#{addressCode}
+    </select>
+
+
 </mapper>

@@ -33,6 +33,7 @@ public class OrderActivityImpl implements OrderActivity {
         orderParam.setOrderAddressDetail(orderDTO.getOrderAddressDetail());
         orderParam.setContext(orderDTO.getContext());
         orderParam.setRepairRegion(orderDTO.getRepairRegion());
+        orderParam.setSumAmount(orderDTO.getSumAmount());
 
         return orderAbility.createOneOrder(orderParam);
     }

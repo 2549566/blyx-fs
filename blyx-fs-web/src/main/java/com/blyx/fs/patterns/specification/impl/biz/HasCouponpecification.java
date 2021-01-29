@@ -12,6 +12,7 @@ public class HasCouponpecification<T> extends CompositeSpecification<T> {
     @Override
     public boolean isSatisfiedBy(T candidate) {
         Sku sku=(Sku)candidate;
+        System.out.println("优惠中心。。。"+sku.getName());
         //todo 调用优惠券中心
         return sku.getHasCoupon();
     }

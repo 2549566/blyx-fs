@@ -55,5 +55,10 @@ public class OrderDTO extends BaseMO implements Serializable {
      *
      * */
     private String repairRegion;
+    /**
+     * 总金额。（以分为单位）
+     *
+     * */
+    private Integer sumAmount;
 
 }

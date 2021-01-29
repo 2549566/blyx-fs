@@ -12,6 +12,8 @@ public class HasCanBuySpecification<T> extends CompositeSpecification<T> {
     @Override
     public boolean isSatisfiedBy(T candidate) {
         Sku sku=(Sku)candidate;
+
+        System.out.println("商品中心。。。"+sku.getName());
         //todo 调用商品中心
         return sku.getHasCanBuy();
     }

@@ -6,13 +6,23 @@ package com.blyx.fs.common.enums;
  * */
 public enum BizTypeEnum {
 
-    FS("001","防水");
+    FS(1,"001","防水");
+    private Integer type;
     private String code;
     private String desc;
 
-    BizTypeEnum(String code, String desc) {
+    BizTypeEnum(Integer type,String code, String desc) {
+        this.type=type;
         this.code = code;
         this.desc = desc;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public String getCode() {
@@ -30,5 +40,4 @@ public enum BizTypeEnum {
     public void setDesc(String desc) {
         this.desc = desc;
     }
-
 }
