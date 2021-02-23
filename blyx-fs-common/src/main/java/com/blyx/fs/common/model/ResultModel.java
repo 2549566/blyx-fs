@@ -12,7 +12,7 @@ import java.io.Serializable;
  *
  * */
 @Data
-public class BlyxResult<T> implements Serializable {
+public class ResultModel<T> implements Serializable {
     /**
      * 成功状态
      */
@@ -44,10 +44,10 @@ public class BlyxResult<T> implements Serializable {
     /**
      * Constructs a new BlyxResult.
      */
-    public BlyxResult() {
+    public ResultModel() {
     }
 
-    public BlyxResult(boolean success, int code, int errorCode, String Msg, T data) {
+    public ResultModel(boolean success, int code, int errorCode, String Msg, T data) {
         this.success = success;
         this.code = code;
         this.msg = Msg;
@@ -66,8 +66,8 @@ public class BlyxResult<T> implements Serializable {
         this.msg = message;
     }
 
-    public static  <T> BlyxResult<T> setFailure(int code, String message) {
-        BlyxResult<T> result=new BlyxResult<>();
+    public static  <T> ResultModel<T> setFailure(int code, String message) {
+        ResultModel<T> result=new ResultModel<>();
         result.setFail(code,message);
         return result;
     }
@@ -79,8 +79,8 @@ public class BlyxResult<T> implements Serializable {
         this.code = SUCCESS_CODE;
         this.msg="请求成功";
     }
-    public static  <T> BlyxResult<T> setSuccessData(T data) {
-        BlyxResult<T> result=new BlyxResult<>();
+    public static  <T> ResultModel<T> setSuccessData(T data) {
+        ResultModel<T> result=new ResultModel<>();
         result.setSucData(data);
         return result;
     }

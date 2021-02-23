@@ -9,7 +9,7 @@ public enum BizCodeEnum {
 
 
     /**
-     * worker异常 10000开头
+     * worker异常 100000开头
      *
      * */
     WORKER_LOGIN_TOKEN_IS_NOT_EXISTS(100001,"用户未登陆"),
@@ -17,7 +17,7 @@ public enum BizCodeEnum {
 
 
     /**
-     * order异常 20000开头
+     * order异常 200000开头
      *
      * */
     ORDER_USER_SUBMIT_NULL(200001,"提交的订单为空"),
@@ -25,6 +25,11 @@ public enum BizCodeEnum {
 
 
 
+    /**
+     * address异常 400000开头
+     *
+     * */
+    ADDRESS_REST_QUERYADDRESSLIST_PARAM_EMPTY(400001,"REST：地址ID为空"),
 
 
     ;
@@ -33,11 +38,11 @@ public enum BizCodeEnum {
 
 
     private int code;
-    private String desc;
+    private String msg;
 
-    BizCodeEnum(int code, String desc) {
+    BizCodeEnum(int code, String msg) {
         this.code = code;
-        this.desc = desc;
+        this.msg = msg;
     }
 
     public int getCode() {
@@ -48,12 +53,12 @@ public enum BizCodeEnum {
         this.code = code;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
 

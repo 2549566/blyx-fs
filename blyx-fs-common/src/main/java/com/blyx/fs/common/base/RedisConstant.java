@@ -12,5 +12,7 @@ public class RedisConstant {
      * 地址在Redis中存储的前缀
      *
      * */
-    public static final String REDIS_ADDRESS_PREFIX="redis_address_prefix";
+    public static final String REDIS_ADDRESS_PREFIX="redis_address_prefix_";
+    public static final String REDIS_ADDRESS_SONLIST_PREFIX="redis_address_sonlist_prefix_";
+
 }

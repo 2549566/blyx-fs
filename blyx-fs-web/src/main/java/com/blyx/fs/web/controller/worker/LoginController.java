@@ -1,6 +1,6 @@
 package com.blyx.fs.web.controller.worker;
 
-import com.blyx.fs.common.model.BlyxResult;
+import com.blyx.fs.common.model.ResultModel;
 import com.blyx.fs.common.utils.ParamCheckUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,12 +22,12 @@ public class LoginController {
 
 
     @PostMapping("/getCheckCode")
-    public BlyxResult<Boolean> getCheckCode(HttpServletRequest request, String mobile){
+    public ResultModel<Boolean> getCheckCode(HttpServletRequest request, String mobile){
         //校验手机号
         ParamCheckUtil.checkMobileNumber(mobile);
 
         //校验IP，防止网络攻击 todo
 
-        return BlyxResult.setSuccessData(true);
+        return ResultModel.setSuccessData(true);
     }
 }

@@ -4,7 +4,7 @@ package com.blyx.fs.domain.order.ability.impl;
 import com.blyx.fs.common.enums.BizTypeEnum;
 import com.blyx.fs.common.enums.OrderStatusEnum;
 import com.blyx.fs.common.utils.GenOrderUtil;
-import com.blyx.fs.domain.common.ability.AddressAbility;
+import com.blyx.fs.domain.address.ability.AddressAbility;
 import com.blyx.fs.domain.common.model.AddressMO;
 import com.blyx.fs.domain.order.ability.OrderAbility;
 import com.blyx.fs.domain.order.model.OrderMO;
@@ -12,8 +12,6 @@ import com.blyx.fs.domain.worker.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Date;
 
 /**
  * @author quyang5

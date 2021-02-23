@@ -3,7 +3,7 @@ package com.blyx.fs.web.controller.order;
 import com.alibaba.fastjson.JSON;
 import com.blyx.fs.common.enums.BizCodeEnum;
 import com.blyx.fs.common.exception.BizException;
-import com.blyx.fs.common.model.BlyxResult;
+import com.blyx.fs.common.model.ResultModel;
 import com.blyx.fs.common.utils.AddressCheckUtil;
 import com.blyx.fs.common.utils.ParamCheckUtil;
 import com.blyx.fs.context.activity.order.OrderActivity;
@@ -28,7 +28,7 @@ public class UserOrderController {
 
 
     @PostMapping("/submitOrderFS")
-    public BlyxResult<Boolean> submitOrderFS(@RequestBody OrderDTO orderDTO){
+    public ResultModel<Boolean> submitOrderFS(@RequestBody OrderDTO orderDTO){
 
         log.info("UserOrderController.submitOrderFS:orderDTO={}",JSON.toJSONString(orderDTO));
 
@@ -41,18 +41,18 @@ public class UserOrderController {
 
         log.info("UserOrderController.submitOrderFS:result orderCode={}",orderCode);
 
-        return BlyxResult.setSuccessData(true);
+        return ResultModel.setSuccessData(true);
     }
 
     private Boolean checkSubmitOrderFS(OrderDTO orderDTO) {
 
         if(orderDTO==null){
             log.error("UserOrderController.submitOrderFS:orderDTO is null");
-            throw new BizException(BizCodeEnum.ORDER_USER_SUBMIT_NULL.getCode(),BizCodeEnum.ORDER_USER_SUBMIT_NULL.getDesc());
+            throw new BizException(BizCodeEnum.ORDER_USER_SUBMIT_NULL.getCode(),BizCodeEnum.ORDER_USER_SUBMIT_NULL.getMsg());
         }
 
         if(!AddressCheckUtil.checkServerRegion(orderDTO.getOrderProvinceCode())){
-            throw new BizException(BizCodeEnum.ORDER_NOT_IN_SERVER_REGION.getCode(),BizCodeEnum.ORDER_NOT_IN_SERVER_REGION.getDesc());
+            throw new BizException(BizCodeEnum.ORDER_NOT_IN_SERVER_REGION.getCode(),BizCodeEnum.ORDER_NOT_IN_SERVER_REGION.getMsg());
         }
 
         return true;

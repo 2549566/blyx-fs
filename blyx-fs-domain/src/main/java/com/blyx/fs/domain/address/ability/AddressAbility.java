@@ -1,6 +1,9 @@
-package com.blyx.fs.domain.common.ability;
+package com.blyx.fs.domain.address.ability;
 
+import com.blyx.fs.domain.address.model.AddressDTO;
 import com.blyx.fs.domain.common.model.AddressMO;
+
+import java.util.List;
 
 /**
  * @author quyang5
@@ -16,4 +19,6 @@ public interface AddressAbility {
      *
      * */
     AddressMO findAddressByCode(Integer addressCode);
+
+    List<AddressDTO> queryAddressList(Integer addressCode);
 }

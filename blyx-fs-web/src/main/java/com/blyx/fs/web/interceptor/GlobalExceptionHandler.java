@@ -2,7 +2,7 @@ package com.blyx.fs.web.interceptor;
 
 import com.blyx.fs.common.enums.SystemExceptionEnum;
 import com.blyx.fs.common.exception.BizException;
-import com.blyx.fs.common.model.BlyxResult;
+import com.blyx.fs.common.model.ResultModel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,15 +19,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler
-    public <T> BlyxResult<T> handlerBusinessException(BizException e){
+    public <T> ResultModel<T> handlerBusinessException(BizException e){
         log.error("GlobalException.BusinessException:"+e.getMessage(),e.getCode());
-        return BlyxResult.setFailure(e.getCode(),e.getMessage());
+        return ResultModel.setFailure(e.getCode(),e.getMessage());
     }
 
     @ExceptionHandler
-    public <T> BlyxResult<T> handlerException(Exception e){
+    public <T> ResultModel<T> handlerException(Exception e){
         log.error("GlobalException.Exception:"+e);
-        return BlyxResult.setFailure(SystemExceptionEnum.SYSTEM_ERROR.getCode(),SystemExceptionEnum.SYSTEM_ERROR.getDesc());
+        return ResultModel.setFailure(SystemExceptionEnum.SYSTEM_ERROR.getCode(),SystemExceptionEnum.SYSTEM_ERROR.getDesc());
     }
 
 

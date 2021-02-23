@@ -26,4 +26,6 @@ public interface AddressMapper {
      *
      * */
     AddressEntity selectAddressByCode(@Param("addressCode") Integer addressCode);
+
+    List<AddressEntity> selectSonAddressList(@Param("addressCode") Integer addressCode);
 }

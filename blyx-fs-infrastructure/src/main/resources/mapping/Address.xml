@@ -22,4 +22,11 @@
     </select>
 
 
+    <select id="selectSonAddressList" resultMap="ResultMap">
+        SELECT <include refid="allColumns"/>
+        FROM address
+        where pid=#{addressCode}
+    </select>
+
+
 </mapper>

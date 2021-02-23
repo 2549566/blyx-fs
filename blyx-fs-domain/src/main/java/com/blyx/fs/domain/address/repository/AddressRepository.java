@@ -1,6 +1,9 @@
-package com.blyx.fs.domain.common.repository;
+package com.blyx.fs.domain.address.repository;
 
+import com.blyx.fs.domain.address.model.AddressDTO;
 import com.blyx.fs.domain.common.model.AddressMO;
+
+import java.util.List;
 
 /**
  * @author quyang5
@@ -15,4 +18,6 @@ public interface AddressRepository {
      *
      * */
     AddressMO getAddressByCode(Integer addressCode);
+
+    List<AddressDTO> querySonAddressList(Integer addressCode);
 }

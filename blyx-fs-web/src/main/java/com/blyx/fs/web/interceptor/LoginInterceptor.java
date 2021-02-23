@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @description 登陆拦截器
@@ -36,6 +38,8 @@ public class LoginInterceptor implements HandlerInterceptor {
      */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 
+        log.info("LoginInterceptor.preHandle......");
+
         String url=request.getRequestURI();
 
         if(url.startsWith("/userOrder/")){
@@ -46,11 +50,15 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        if(url.startsWith("/userAddress/")){
+            return true;
+        }
+
         String token =request.getHeader("token");
 
 
         if(!redisUtil.hasKey(token)){
-            throw new BizException(BizCodeEnum.WORKER_LOGIN_TOKEN_IS_NOT_EXISTS.getCode(),BizCodeEnum.WORKER_LOGIN_TOKEN_IS_NOT_EXISTS.getDesc());
+            throw new BizException(BizCodeEnum.WORKER_LOGIN_TOKEN_IS_NOT_EXISTS.getCode(),BizCodeEnum.WORKER_LOGIN_TOKEN_IS_NOT_EXISTS.getMsg());
         }
 
         return true;
