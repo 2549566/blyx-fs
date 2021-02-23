@@ -49,7 +49,7 @@ public class AddressAbilityImpl implements AddressAbility {
 
         AddressMO addressMO= addressRepository.getAddressByCode(addressCode);
 
-        redisUtil.set(redisKey,JSON.toJSONString(addressMO));
+        redisUtil.setEx(redisKey,JSON.toJSONString(addressMO),RedisConstant.REDIS_TIMEOUT);
 
         return addressMO;
     }
@@ -68,7 +68,7 @@ public class AddressAbilityImpl implements AddressAbility {
 
         List<AddressDTO> addressDTOList=addressRepository.querySonAddressList(addressCode);
 
-        redisUtil.set(redisKey,JSON.toJSONString(addressDTOList));
+        redisUtil.setEx(redisKey,JSON.toJSONString(addressDTOList),RedisConstant.REDIS_TIMEOUT);
 
         return addressDTOList;
     }

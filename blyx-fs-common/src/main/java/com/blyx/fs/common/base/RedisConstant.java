@@ -9,6 +9,12 @@ public class RedisConstant {
 
 
     /**
+     * redis 过期时间
+     *
+     * */
+    public static final Integer REDIS_TIMEOUT=60*24*10;
+
+    /**
      * 地址在Redis中存储的前缀
      *
      * */
