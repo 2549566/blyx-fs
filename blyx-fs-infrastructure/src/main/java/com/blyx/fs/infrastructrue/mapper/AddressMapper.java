@@ -1,6 +1,5 @@
 package com.blyx.fs.infrastructrue.mapper;
 
-import com.blyx.fs.domain.common.model.AddressMO;
 import com.blyx.fs.infrastructrue.entity.AddressEntity;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -26,5 +25,5 @@ public interface AddressMapper {
      * 根据地址编码获取地址嘻嘻
      *
      * */
-    AddressMO selectAddressByCode(@Param("addressCode") Integer addressCode);
+    AddressEntity selectAddressByCode(@Param("addressCode") Integer addressCode);
 }

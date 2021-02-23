@@ -104,7 +104,7 @@ public class OrderEntity extends BaseEntity implements Serializable {
      * 手续费
      *
      * */
-    private Integer serviceCharge;
+    private Integer serviceFee;
     /**
      * 客户的订单描述
      *
