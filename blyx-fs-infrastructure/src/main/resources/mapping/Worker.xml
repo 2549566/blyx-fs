@@ -34,7 +34,7 @@
 
   <sql id="allColumns">
       id,pin,type,mobile,id_card,credit_level,score,user_name,real_name,references_pin,image_header,password,address_province_code,
-      address_city_code,address_area_code,address_province_name,address_city_name,address_area_name,address_detail,
+      address_city_code,address_area_code,address_province_name,address_city_name,address_area_name,address_detail,locate_info,
       is_auth,is_accept_order,created,modified,creator,modifier,yn
   </sql>
 
@@ -43,7 +43,7 @@
         INSERT INTO fs_worker (<include refid="allColumns" />)
         VALUES (NULL,#{pin},#{type},#{mobile},#{idCard},#{creditLevel},#{score},#{userName},#{realName},#{referencesPin},#{imageHeader},
                 #{password},#{addressProvinceCode},#{addressCityCode},#{addressAreaCode},#{addressProvinceName},#{addressCityName},#{addressAreaName},
-                #{addressDetail},#{isAuth},#{isAcceptOrder},#{created},#{modified},#{creator},#{modifier},#{yn})
+                #{addressDetail},#{locateInfo},#{isAuth},#{isAcceptOrder},#{created},#{modified},#{creator},#{modifier},#{yn})
 
     </insert>
 
