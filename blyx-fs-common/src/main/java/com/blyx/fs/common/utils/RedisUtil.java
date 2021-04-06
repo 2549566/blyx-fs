@@ -274,7 +274,7 @@ public class RedisUtil {
 	 *            秒:TimeUnit.SECONDS 毫秒:TimeUnit.MILLISECONDS
 	 */
 	public void setEx(String key, String value, long timeout) {
-		redisTemplate.opsForValue().set(key, value, timeout, TimeUnit.MILLISECONDS);
+		redisTemplate.opsForValue().set(key, value, timeout, TimeUnit.MINUTES);
 	}
 
 	/**

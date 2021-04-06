@@ -1,4 +1,4 @@
-package com.blyx.fs.domain.worker.repository;
+package com.blyx.fs.domain.order.repository;
 
 
 import com.blyx.fs.domain.order.model.OrderMO;

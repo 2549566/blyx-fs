@@ -46,6 +46,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        //TODO 工人登陆，不过滤。为了测试才加上的。
         if(url.startsWith("/workerLogin/")){
             return true;
         }

@@ -8,7 +8,7 @@ import com.blyx.fs.domain.address.ability.AddressAbility;
 import com.blyx.fs.domain.common.model.AddressMO;
 import com.blyx.fs.domain.order.ability.OrderAbility;
 import com.blyx.fs.domain.order.model.OrderMO;
-import com.blyx.fs.domain.worker.repository.OrderRepository;
+import com.blyx.fs.domain.order.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

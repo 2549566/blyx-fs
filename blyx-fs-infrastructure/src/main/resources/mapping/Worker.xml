@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.blyx.fs.infrastructrue.mapper.WorkerMapper" >
+  <resultMap id="ResultMap" type="com.blyx.fs.infrastructrue.entity.WorkerEntity" >
+      <id column="id" property="id" />
+      <result column="pin" property="pin" />
+      <result column="type" property="type" />
+      <result column="mobile" property="mobile" />
+      <result column="id_card" property="idCard" />
+      <result column="credit_level" property="creditLevel" />
+      <result column="score" property="score" />
+      <result column="user_name" property="userName" />
+      <result column="real_name" property="realName" />
+      <result column="references_pin" property="referencesPin" />
+      <result column="image_header" property="imageHeader" />
+      <result column="password" property="password" />
+      <result column="address_province_code" property="addressProvinceCode" />
+      <result column="address_city_code" property="addressCityCode" />
+      <result column="address_area_code" property="addressAreaCode" />
+      <result column="address_province_name" property="addressProvinceName" />
+      <result column="address_city_name" property="addressCityName" />
+      <result column="address_area_name" property="addressAreaName" />
+      <result column="address_detail" property="addressDetail" />
+      <result column="locate_info" property="locateInfo" />
+      <result column="is_auth" property="isAuth" />
+      <result column="is_accept_order" property="isAcceptOrder" />
+      <result column="created" property="created" />
+      <result column="modified" property="modified" />
+      <result column="creator" property="creator" />
+      <result column="modifier" property="modifier" />
+      <result column="yn" property="yn" />
+  </resultMap>
+
+
+  <sql id="allColumns">
+      id,pin,type,mobile,id_card,credit_level,score,user_name,real_name,references_pin,image_header,password,address_province_code,
+      address_city_code,address_area_code,address_province_name,address_city_name,address_area_name,address_detail,
+      is_auth,is_accept_order,created,modified,creator,modifier,yn
+  </sql>
+
+
+    <insert id="insertWorker" useGeneratedKeys="true" keyProperty="id" parameterType="com.blyx.fs.infrastructrue.entity.WorkerEntity" >
+        INSERT INTO fs_worker (<include refid="allColumns" />)
+        VALUES (NULL,#{pin},#{type},#{mobile},#{idCard},#{creditLevel},#{score},#{userName},#{realName},#{referencesPin},#{imageHeader},
+                #{password},#{addressProvinceCode},#{addressCityCode},#{addressAreaCode},#{addressProvinceName},#{addressCityName},#{addressAreaName},
+                #{addressDetail},#{isAuth},#{isAcceptOrder},#{created},#{modified},#{creator},#{modifier},#{yn})
+
+    </insert>
+
+    <select id="selectWorkerInfo" parameterType="com.blyx.fs.infrastructrue.entity.WorkerEntity" resultType="com.blyx.fs.infrastructrue.entity.WorkerEntity">
+        SELECT <include refid="allColumns"/>
+        FROM fs_worker
+        <where>
+            <if test="id!=null">                 AND id=#{id}</if>
+            <if test="mobile!=null">             AND mobile=#{mobile}</if>
+            <if test="idCard!=null">             AND id_card=#{idCard}</if>
+            <if test="pin!=null">                AND pin=#{pin}</if>
+        </where>
+    </select>
+
+
+</mapper>

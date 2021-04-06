@@ -2,7 +2,7 @@ package com.blyx.fs.infrastructrue.repository.order;
 
 
 import com.blyx.fs.domain.order.model.OrderMO;
-import com.blyx.fs.domain.worker.repository.OrderRepository;
+import com.blyx.fs.domain.order.repository.OrderRepository;
 import com.blyx.fs.infrastructrue.entity.OrderEntity;
 import com.blyx.fs.infrastructrue.mapper.OrderMapper;
 import lombok.extern.slf4j.Slf4j;

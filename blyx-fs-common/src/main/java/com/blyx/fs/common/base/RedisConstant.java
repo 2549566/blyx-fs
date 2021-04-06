@@ -21,4 +21,12 @@ public class RedisConstant {
     public static final String REDIS_ADDRESS_PREFIX="redis_address_prefix_";
     public static final String REDIS_ADDRESS_SONLIST_PREFIX="redis_address_sonlist_prefix_";
 
+
+    /**
+     * 缓存工人信息
+     *
+     * */
+    public static final String REDIS_WORKER_PREFIX="redis_worker_prefix_";
+    public static final Integer REDIS_WORKER_TIMEOUT=60;
+
 }
