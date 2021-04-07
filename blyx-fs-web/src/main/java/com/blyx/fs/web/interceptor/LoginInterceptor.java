@@ -51,6 +51,11 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        if(url.startsWith("/workerOrder/")){
+            return true;
+        }
+        //TODO 以上过滤去掉
+
         if(url.startsWith("/userAddress/")){
             return true;
         }

@@ -2,7 +2,10 @@ package com.blyx.fs.infrastructrue.mapper;
 
 
 import com.blyx.fs.infrastructrue.entity.OrderEntity;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author quyang5
@@ -20,4 +23,8 @@ public interface OrderMapper {
      *
      * */
     Integer insertOne(OrderEntity orderEntity);
+
+    List<OrderEntity> queryOrderListPage(@Param("limit") Integer limit,@Param("offset") Integer offset);
+
+    Integer queryOrderListCount();
 }

@@ -1,6 +1,11 @@
 package com.blyx.fs.context.activity.order;
 
+import com.blyx.fs.common.base.PageVO;
 import com.blyx.fs.context.model.req.OrderDTO;
+import com.blyx.fs.domain.order.model.OrderMO;
+import com.blyx.fs.domain.order.model.WorkerDTO;
+
+import java.util.List;
 
 /**
  * @author quyang5
@@ -16,4 +21,6 @@ public interface OrderActivity {
      * @return orderCode 订单编码
      * */
     String createOrderFS(OrderDTO orderDTO);
+
+    PageVO<List<OrderMO>> queryOrderListPage(PageVO<WorkerDTO> page);
 }

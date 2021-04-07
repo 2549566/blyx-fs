@@ -9,6 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author quyang5
@@ -28,5 +32,25 @@ public class OrderRepositoryImpl implements OrderRepository {
         OrderEntity entity=new OrderEntity();
         BeanUtils.copyProperties(orderMO,entity);
         return orderMapper.insertOne(entity);
+    }
+
+    @Override
+    public List<OrderMO> queryOrderListPage(Integer limit, Integer offset) {
+
+        List<OrderEntity> orderEntityList=orderMapper.queryOrderListPage(limit,offset);
+
+
+        if(CollectionUtils.isEmpty(orderEntityList)){
+            return new ArrayList<>();
+        }
+
+        List<OrderMO> orderMOList=new ArrayList<>();
+        for(OrderEntity entity:orderEntityList){
+            OrderMO orderMO=new OrderMO();
+            BeanUtils.copyProperties(entity,orderMO);
+            orderMOList.add(orderMO);
+        }
+
+        return orderMOList;
     }
 }

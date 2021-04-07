@@ -1,7 +1,11 @@
 package com.blyx.fs.domain.order.ability;
 
 
+import com.blyx.fs.common.base.PageVO;
 import com.blyx.fs.domain.order.model.OrderMO;
+import com.blyx.fs.domain.order.model.WorkerDTO;
+
+import java.util.List;
 
 /**
  * @author quyang5
@@ -27,4 +31,13 @@ public interface OrderAbility {
      *
      * */
     String createOneOrder(OrderMO orderMO);
+
+
+    /**
+     * @desc 根据工人信息查询订单列表
+     * @param page 工人信息+分页信息
+     * @return List<OrderMO>
+     *
+     * */
+    List<OrderMO> queryOrderListPage(PageVO<WorkerDTO> page);
 }

@@ -106,6 +106,16 @@ public class WorkerEntity extends BaseEntity implements Serializable {
      * */
     private String locateInfo;
     /**
+     * 经度
+     *
+     * */
+    private Double longitude;
+    /**
+     * 纬度
+     *
+     * */
+    private Double latitude;
+    /**
      * 是否已认证：0：未认证，1：已认证
      *
      * */

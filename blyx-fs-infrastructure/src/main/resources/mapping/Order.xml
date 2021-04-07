@@ -49,4 +49,24 @@
         #{startTime},#{endTime},#{score},#{userEvaluation},#{errorMsg},#{errorCode},NOW(),#{modified},#{creator},#{modifier},#{yn} )
     </insert>
 
+
+    <select id="queryOrderListPage" resultType="com.blyx.fs.infrastructrue.entity.OrderEntity">
+        SELECT
+        <include refid="allColumns"/>
+        FROM
+        fs_order
+        WHERE
+        yn=1 ORDER BY created ASC
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <select id="queryOrderListCount" resultType="int">
+        SELECT
+        COUNT(*)
+        FROM
+        fs_order
+        WHERE
+        yn=1
+    </select>
+
 </mapper>

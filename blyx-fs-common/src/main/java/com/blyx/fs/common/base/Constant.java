@@ -14,7 +14,7 @@ public class Constant {
     //手机号限制时间
     public static int CHECK_MOBILE_OVER_TIME =60*24;
     //手机号每日限制次数
-    public static int CHECK_MOBILE_TIMES_EVERYDAY=5;
+    public static int CHECK_MOBILE_TIMES_EVERYDAY=10;
     //ip限制时间
     public static int CHECK_IP_OVER_TIME=60*24;
     //ip每日可调用的次数

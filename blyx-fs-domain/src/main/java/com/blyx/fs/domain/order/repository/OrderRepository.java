@@ -3,6 +3,8 @@ package com.blyx.fs.domain.order.repository;
 
 import com.blyx.fs.domain.order.model.OrderMO;
 
+import java.util.List;
+
 /**
  * @author quyang5
  * @description
@@ -17,4 +19,13 @@ public interface OrderRepository {
      *
      * */
     Integer saveOrder(OrderMO orderMO);
+
+    /**
+     * @desc 查询订单信息
+     * @param limit 页大小
+     * @param offset 偏移量
+     * @return List<OrderMO>
+     *
+     * */
+    List<OrderMO> queryOrderListPage(Integer limit, Integer offset);
 }

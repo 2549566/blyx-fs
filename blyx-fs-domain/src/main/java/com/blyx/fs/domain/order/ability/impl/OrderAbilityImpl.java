@@ -1,6 +1,7 @@
 package com.blyx.fs.domain.order.ability.impl;
 
 
+import com.blyx.fs.common.base.PageVO;
 import com.blyx.fs.common.enums.BizTypeEnum;
 import com.blyx.fs.common.enums.OrderStatusEnum;
 import com.blyx.fs.common.utils.GenOrderUtil;
@@ -8,10 +9,14 @@ import com.blyx.fs.domain.address.ability.AddressAbility;
 import com.blyx.fs.domain.common.model.AddressMO;
 import com.blyx.fs.domain.order.ability.OrderAbility;
 import com.blyx.fs.domain.order.model.OrderMO;
+import com.blyx.fs.domain.order.model.WorkerDTO;
 import com.blyx.fs.domain.order.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author quyang5
@@ -71,5 +76,21 @@ public class OrderAbilityImpl implements OrderAbility {
         orderRepository.saveOrder(orderMO);
 
         return orderMO.getOrderCode();
+    }
+
+    @Override
+    public List<OrderMO> queryOrderListPage(PageVO<WorkerDTO> page) {
+
+        if(page==null){
+            return new ArrayList<>();
+        }
+
+
+        Integer limit=page.getPageSize();
+
+        Integer offset=(page.getCurrentPage()-1)*page.getPageSize();
+
+        return orderRepository.queryOrderListPage(limit,offset);
+
     }
 }

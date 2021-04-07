@@ -9,6 +9,7 @@ import com.blyx.fs.common.utils.ParamCheckUtil;
 import com.blyx.fs.common.utils.RedisUtil;
 import com.blyx.fs.domain.other.ability.CheckCodeAbility;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,11 +47,11 @@ public class CheckCodeAbilityImpl implements CheckCodeAbility {
 
     public boolean checkMobileTimes(String mobile){
         ParamCheckUtil.checkMobileNumber(mobile);
-        if(null==redisUtil.get(Constant.CHECK_MOBILE+mobile)){
+        if(StringUtils.isBlank(redisUtil.get(Constant.CHECK_MOBILE+mobile))){
             redisUtil.setEx(Constant.CHECK_MOBILE+mobile,"",Constant.CHECK_MOBILE_OVER_TIME);
             return true;
         }
-        if(Integer.parseInt(redisUtil.get(Constant.CHECK_MOBILE+mobile).toString())<Constant.CHECK_MOBILE_TIMES_EVERYDAY){
+        if(Integer.parseInt(redisUtil.get(Constant.CHECK_MOBILE+mobile))<Constant.CHECK_MOBILE_TIMES_EVERYDAY){
             Integer times=Integer.parseInt(redisUtil.get(Constant.CHECK_MOBILE+mobile))+1;
             redisUtil.setEx(Constant.CHECK_MOBILE+mobile,String.valueOf(times),Constant.CHECK_IP_OVER_TIME);
             return true;
