@@ -24,4 +24,6 @@ public interface WorkerInfoAbility {
      *
      * */
     WorkerMO registerWorkerFrist(String mobile);
+
+    Boolean editWorkerInfo(WorkerMO workerMO);
 }

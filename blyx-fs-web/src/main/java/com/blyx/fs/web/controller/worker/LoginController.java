@@ -2,8 +2,8 @@ package com.blyx.fs.web.controller.worker;
 
 import com.blyx.fs.common.model.ResultModel;
 import com.blyx.fs.common.utils.ParamCheckUtil;
-import com.blyx.fs.common.utils.RedisUtil;
 import com.blyx.fs.context.activity.other.CheckCodeActivity;
+import com.blyx.fs.context.activity.worker.WorkerActivity;
 import com.blyx.fs.context.activity.worker.WorkerLoginActivity;
 import com.blyx.fs.domain.worker.model.WorkerMO;
 import lombok.extern.slf4j.Slf4j;
@@ -24,14 +24,13 @@ public class LoginController {
 
 
     @Autowired
-    private RedisUtil redisUtil;
-
-
-    @Autowired
     private CheckCodeActivity checkCodeActivity;
 
     @Autowired
     private WorkerLoginActivity workerLoginActivity;
+
+    @Autowired
+    private WorkerActivity workerActivity;
 
 
 
@@ -61,7 +60,7 @@ public class LoginController {
         //校验验证码过期
         checkCodeActivity.checkCodeOver(mobile,code);
 
-        WorkerMO workerMO= workerLoginActivity.getWorkerInfoByMobile(mobile);
+        WorkerMO workerMO= workerActivity.getWorkerInfoByMobile(mobile);
 
         if(workerMO==null){
             workerMO=workerLoginActivity.registerWorkerFrist(mobile);

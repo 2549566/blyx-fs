@@ -10,15 +10,6 @@ import com.blyx.fs.domain.worker.model.WorkerMO;
 public interface WorkerLoginActivity {
 
     /**
-     * @desc 根据手机号获取工人信息
-     * @param mobile 手机号
-     * @return WorkerMO
-     *
-     *
-     * */
-    WorkerMO getWorkerInfoByMobile(String mobile);
-
-    /**
      * @desc 工人注册
      * @param mobile 手机号
      * @return WorkerMO

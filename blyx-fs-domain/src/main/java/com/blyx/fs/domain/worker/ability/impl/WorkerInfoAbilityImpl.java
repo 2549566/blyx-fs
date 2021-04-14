@@ -3,6 +3,7 @@ package com.blyx.fs.domain.worker.ability.impl;
 import com.alibaba.fastjson.JSON;
 import com.blyx.fs.common.base.RedisConstant;
 import com.blyx.fs.common.enums.CreditLevelEnum;
+import com.blyx.fs.common.enums.WorkerAcceptOrderEnum;
 import com.blyx.fs.common.enums.WorkerAuthEnum;
 import com.blyx.fs.common.enums.WorkerTypeEnum;
 import com.blyx.fs.common.utils.RedisUtil;
@@ -12,12 +13,8 @@ import com.blyx.fs.domain.worker.model.WorkerMO;
 import com.blyx.fs.domain.worker.repository.WorkerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.omg.CORBA.PRIVATE_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.rmi.MarshalledObject;
-
 /**
  * @author quyang5
  * @description
@@ -74,12 +71,18 @@ public class WorkerInfoAbilityImpl implements WorkerInfoAbility {
         workerMO.setAddressCityName("北京市");
         workerMO.setAddressAreaName("东城区");
 
-        workerMO.setIsAuth(WorkerAuthEnum.IS_NOT_AUTH.getAuth());
+        workerMO.setIsAuth(WorkerAuthEnum.IS_NOT_AUTH.getCode());
 
-        workerMO.setIsAcceptOrder(true);
+        workerMO.setIsAcceptOrder(WorkerAcceptOrderEnum.IS_ACCEPT.getCode());
 
         workerRepository.saveWorkerInfo(workerMO);
 
         return workerMO;
     }
+
+    @Override
+    public Boolean editWorkerInfo(WorkerMO workerMO) {
+        return workerRepository.updateWorkerInfoByMobile(workerMO);
+    }
+
 }

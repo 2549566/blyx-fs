@@ -1,6 +1,6 @@
 package com.blyx.fs.domain.worker.model;
 
-import com.blyx.fs.common.model.BaseEntity;
+import com.blyx.fs.common.model.BaseMO;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @date 15:53 2021/4/6
  */
 @Data
-public class WorkerMO extends BaseEntity implements Serializable {
+public class WorkerMO extends BaseMO implements Serializable {
     private static final long serialVersionUID = -370238068549552024L;
 
     /**
@@ -116,13 +116,25 @@ public class WorkerMO extends BaseEntity implements Serializable {
      * */
     private Double latitude;
     /**
-     * 是否已认证：0：未认证，1：已认证
+     * 是否已认证：-1：未认证,0认证中，1：已认证
      *
      * */
-    private Boolean isAuth;
+    private Integer isAuth;
     /**
      * 是否接受订单：1:接单，0：不接单
      *
      * */
-    private Boolean isAcceptOrder;
+    private Integer isAcceptOrder;
+
+    /**
+     * 身份证人面照URL
+     *
+     * */
+    private String idcardFaceUrl;
+
+    /**
+     * 身份证国徽面URL
+     *
+     * */
+    private String idcardNationalEmblemUrl;
 }

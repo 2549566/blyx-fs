@@ -19,6 +19,6 @@ public class Constant {
     public static int CHECK_IP_OVER_TIME=60*24;
     //ip每日可调用的次数
     public static int CHECK_IP_TIMES=5;
-    //手机验证码过期时间
+    //手机验证码过期时间(分钟) TODO 上线后，修改为10分钟
     public static int MOBILE_CHECK_CODE_OVER_TIME=100000;
 }

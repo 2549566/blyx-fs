@@ -19,17 +19,6 @@ public class WorkerLoginActivityImpl implements WorkerLoginActivity {
     @Autowired
     private WorkerInfoAbility workerInfoAbility;
 
-
-    @Override
-    public WorkerMO getWorkerInfoByMobile(String mobile) {
-
-        log.info("WorkerLoginActivityImpl.findWorkerInfoByMobile:mobile={}",mobile);
-
-        WorkerMO workerMO=workerInfoAbility.getWorkerInfo(mobile);
-
-        return workerMO;
-    }
-
     @Override
     public WorkerMO registerWorkerFrist(String mobile) {
         log.info("WorkerLoginActivityImpl.registerWorker:mobile={}",mobile);

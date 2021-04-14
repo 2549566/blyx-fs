@@ -5,21 +5,21 @@ package com.blyx.fs.common.enums;
  * 异常枚举类
  *
  * */
-public enum WorkerAuthEnum {
+public enum WorkerAcceptOrderEnum {
 
 
-    IS_NOT_AUTH(-1,"未认证"),
-    IS_AUTHING(0,"认证中"),
-    IS_AUTH(1,"已认证"),
+    IS_NOT_ACCEPT(0,"不接单"),
+    IS_ACCEPT(1,"接单"),
     ;
 
     private Integer code;
     private String desc;
 
-    WorkerAuthEnum(Integer code, String desc) {
+    WorkerAcceptOrderEnum(Integer code, String desc) {
         this.code = code;
         this.desc = desc;
     }
+
 
     public Integer getCode() {
         return code;

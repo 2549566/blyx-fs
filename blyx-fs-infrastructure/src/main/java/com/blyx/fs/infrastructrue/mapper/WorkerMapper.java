@@ -1,5 +1,6 @@
 package com.blyx.fs.infrastructrue.mapper;
 
+import com.blyx.fs.domain.worker.model.WorkerMO;
 import com.blyx.fs.infrastructrue.entity.WorkerEntity;
 import org.springframework.stereotype.Repository;
 
@@ -15,4 +16,6 @@ public interface WorkerMapper {
     WorkerEntity selectWorkerInfo(WorkerEntity paramWorkerEntity);
 
     void insertWorker(WorkerEntity paramWorkerEntity);
+
+    Integer updateWorkerInfoByMobile(WorkerMO workerMO);
 }

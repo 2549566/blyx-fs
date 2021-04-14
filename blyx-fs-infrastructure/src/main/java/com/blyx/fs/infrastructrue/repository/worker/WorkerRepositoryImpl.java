@@ -2,7 +2,6 @@ package com.blyx.fs.infrastructrue.repository.worker;
 
 import com.blyx.fs.domain.worker.model.WorkerMO;
 import com.blyx.fs.domain.worker.repository.WorkerRepository;
-import com.blyx.fs.infrastructrue.entity.OrderEntity;
 import com.blyx.fs.infrastructrue.entity.WorkerEntity;
 import com.blyx.fs.infrastructrue.mapper.WorkerMapper;
 import org.springframework.beans.BeanUtils;
@@ -43,5 +42,13 @@ public class WorkerRepositoryImpl implements WorkerRepository {
         WorkerEntity paramWorkerEntity=new WorkerEntity();
         BeanUtils.copyProperties(workerMO,paramWorkerEntity);
         workerMapper.insertWorker(paramWorkerEntity);
+    }
+
+    @Override
+    public Boolean updateWorkerInfoByMobile(WorkerMO workerMO) {
+        WorkerEntity paramWorkerEntity=new WorkerEntity();
+        BeanUtils.copyProperties(workerMO,paramWorkerEntity);
+        Integer count=workerMapper.updateWorkerInfoByMobile(workerMO);
+        return count>0;
     }
 }

@@ -50,6 +50,9 @@ public class LoginInterceptor implements HandlerInterceptor {
         if(url.startsWith("/workerLogin/")){
             return true;
         }
+        if(url.startsWith("/worker/")){
+            return true;
+        }
 
         if(url.startsWith("/workerOrder/")){
             return true;

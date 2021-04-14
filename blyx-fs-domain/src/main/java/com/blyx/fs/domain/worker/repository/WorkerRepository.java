@@ -13,4 +13,6 @@ public interface WorkerRepository {
     WorkerMO findWorkerInfo(WorkerMO workerMO);
 
     void saveWorkerInfo(WorkerMO workerMO);
+
+    Boolean updateWorkerInfoByMobile(WorkerMO workerMO);
 }
